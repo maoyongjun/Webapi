@@ -36,41 +36,27 @@ namespace MESDBHelper
                 dt.Columns.Add("ConnName");
                 dt.Columns.Add("ConnString");
                 dt.Columns.Add("IsCrypt");
+
                 DataRow dr = dt.NewRow();
                 dr["ConnName"] = "SFCSQLSERVERDB";
                 dr["IsCrypt"] = false;
-                //dr["ConnString"] = "Data Source=(DESCRIPTION =(ADDRESS_LIST = (ADDRESS = (PROTOCOL = TCP)(HOST = 10.120.156.91)(PORT = 1903)))(CONNECT_DATA =(SERVICE_NAME = HWDNEWDBTEST))); " +
-                //                    "Persist Security Info=True;" +
-                //                    "User ID=AP2;" +
-                //                    "Password=mbdap2session;" +
-                //                    "Unicode=True;Provider=OraOLEDB.Oracle.1";
                 dr["ConnString"] = "server=10.67.44.194,3000;Database=efoxsfcmu3seagate_test; " +
                                     "User ID=onsitetest;" +
                                     "Password=os$4tet;" ;
-
-
                 dt.Rows.Add(dr);
-                 
+
                 dr = dt.NewRow();
                 dr["ConnName"] = "SFCORACLEDB";
                 dr["IsCrypt"] = false;
-                //dr["ConnString"] = "Data Source=(DESCRIPTION=(ADDRESS_LIST=(ADDRESS=(PROTOCOL=TCP)(HOST=10.120.147.250)(PORT=1521)))(CONNECT_DATA=(SERVICE_NAME=SFCTEST)));" +
-                //                    "Persist Security Info=True;" +
-                //                    "User ID=TEST;" +
-                //                    "Password=SFCTEST;" +
-                //                    "Unicode=True;Provider=OraOLEDB.Oracle.1";
 
                 dr["ConnString"] = "Data Source=(DESCRIPTION=(ADDRESS_LIST=(ADDRESS=(PROTOCOL=TCP)(HOST= 10.67.38.39)(PORT=1521)))(CONNECT_DATA=(SERVICE_NAME= CLOUDMESTEST.CESBG.FOXCONN)));" +
                                     "Persist Security Info=True;" +
                                     "User ID=TEST;" +
                                     "Password=SFCTEST;" +
                                     "Unicode=True;Provider=OraOLEDB.Oracle.1";
-
-
-   
-
-
                 dt.Rows.Add(dr);
+
+
             }
 
            

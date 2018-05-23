@@ -30,5 +30,26 @@ namespace MESDBHelper
             }
            
         }
+
+        public void test1() {
+
+            SqlConnection conn = new SqlConnection();
+
+            ConnectionManager.Init();
+            conn.ConnectionString = ConnectionManager.GetConnString("SFCSQLSERVERDB");
+            conn.Open();
+            SqlCommand cmd = new SqlCommand("",conn);
+            cmd.Parameters.Add("@param1",SqlDbType.VarChar);
+            cmd.Parameters["param1"].Value = "";
+            cmd.Parameters["param1"].Direction = ParameterDirection.Input;
+            cmd.CommandType = CommandType.StoredProcedure;
+            SqlDataReader dr = cmd.ExecuteReader();
+            while (dr.Read()) {
+
+            }
+
+            dr.Close();
+            conn.Close();
+        }
     }
 }
