@@ -10,8 +10,10 @@ namespace HttpUtil
 {
     public class HttpUtil
     {
-        private String httpPost(String url, String postDataStr) {
-            HttpWebRequest request = (HttpWebRequest)WebRequest.Create(url);
+        private CookieContainer cookie;
+
+        private string HttpPost(string URL, string postDataStr) {
+            HttpWebRequest request = (HttpWebRequest)WebRequest.Create(URL);
             request.Method = "POST";
             request.ContentType = "application/x-www-form-urlencoded";
             request.ContentLength = Encoding.UTF8.GetByteCount(postDataStr);
@@ -24,13 +26,24 @@ namespace HttpUtil
             response.Cookies = cookie.GetCookies(response.ResponseUri);
             Stream myResponseStream = response.GetResponseStream();
             StreamReader myStreamReader = new StreamReader(myRequestStream,Encoding.GetEncoding("utf-8"));
-            String retString = myStreamReader.ReadToEnd();
+            string retString = myStreamReader.ReadToEnd();
             myStreamReader.Close();
             myResponseStream.Close();
             return retString;
         }
 
-        private String Http
+        private string HttpGet(string Url, string postDataStr) {
+            HttpWebRequest request = (HttpWebRequest)WebRequest.Create(Url+ (postDataStr==""?"":"?")+postDataStr);
+            request.Method = "GET";
+            request.ContentType = "text/html;charset=UTF-8";
+            HttpWebResponse response = (HttpWebResponse) request.GetResponse();
+            Stream myResponseSteam = response.GetResponseStream();
+            StreamReader myStreamReader = new StreamReader(myResponseSteam,Encoding.GetEncoding("UTF-8"));
+            string retString = myStreamReader.ReadToEnd();
+            myStreamReader.Close();
+            myResponseSteam.Close();
+            return retString;
+        }
 
     }
 }
