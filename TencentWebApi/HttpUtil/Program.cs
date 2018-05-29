@@ -10,6 +10,8 @@ namespace HttpUtil
     {
         static void Main(string[] args)
         {
+            HttpUtil util = new HttpUtil();
+            util.HttpGet("","");
         }
     }
 }

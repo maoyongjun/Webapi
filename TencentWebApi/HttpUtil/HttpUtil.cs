@@ -12,7 +12,7 @@ namespace HttpUtil
     {
         private CookieContainer cookie;
 
-        private string HttpPost(string URL, string postDataStr) {
+        public string HttpPost(string URL, string postDataStr) {
             HttpWebRequest request = (HttpWebRequest)WebRequest.Create(URL);
             request.Method = "POST";
             request.ContentType = "application/x-www-form-urlencoded";
@@ -32,7 +32,7 @@ namespace HttpUtil
             return retString;
         }
 
-        private string HttpGet(string Url, string postDataStr) {
+        public string HttpGet(string Url, string postDataStr) {
             HttpWebRequest request = (HttpWebRequest)WebRequest.Create(Url+ (postDataStr==""?"":"?")+postDataStr);
             request.Method = "GET";
             request.ContentType = "text/html;charset=UTF-8";
